@@ -1,0 +1,13 @@
+cgit_username: "git"
+cgit_ssh_keyfiles:
+    - "{{ lookup('env', 'HOME') }}/.ssh/id_rsa.pub"
+
+cgit_domain_name: "git.example.com"
+
+cgit_css_endpoint: "/cgit.css"
+cgit_css_location: "/usr/share/cgit/cgit.css"
+
+cgit_logo_endpoint: "/cgit.png"
+cgit_logo_location: "/usr/share/cgit/cgit.png"
+
+cgit_repo_dir: "/srv/git/"

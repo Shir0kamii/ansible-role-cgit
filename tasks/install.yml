@@ -1,0 +1,10 @@
+- name: Install cgit
+  apt:
+      name: cgit
+
+- name: Make cgit executable by {{ cgit_username }}
+  file:
+      path: /usr/lib/cgit/cgit.cgi
+      owner: "{{ cgit_username }}"
+  tags:
+      - user

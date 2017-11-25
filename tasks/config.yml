@@ -1,0 +1,13 @@
+- name: Copy nginx configuration
+  template:
+      src: cgit.conf.j2
+      dest: "{{ nginx_vhost_path }}/cgit.conf"
+  tags:
+      - nginx
+  notify:
+      - reload nginx
+
+- name: Copy cgitrc configuration
+  template:
+      src: cgitrc.j2
+      dest: /etc/cgitrc

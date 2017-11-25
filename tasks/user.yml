@@ -1,0 +1,12 @@
+- name: Create user {{ cgit_username }}
+  user:
+      name: "{{ cgit_username }}"
+      shell: /bin/bash
+      group: "{{ fcgiwrap__group }}"
+      home: "{{ cgit_repo_dir }}"
+
+- name: Install SSH key
+  authorized_key:
+      user: "{{ cgit_username }}"
+      key: "{{ item }}"
+  with_file: "{{ cgit_ssh_keyfiles }}"

@@ -1,0 +1,3 @@
+dependencies:
+    - {role: geerlingguy.nginx, tags: [nginx]}
+    - {role: debops.fcgiwrap, tags: [fcgiwrap]}
