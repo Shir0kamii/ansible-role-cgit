@@ -1,3 +1,14 @@
+galaxy_info:
+    author: Shir0kamii
+    description: Install cgit
+    license: BSD
+    min_ansible_version: 2.0
+    platforms:
+        - name: Ubuntu
+    galaxy_tags:
+        - git
+        - web
+        - cgit
 dependencies:
     - {role: geerlingguy.nginx, tags: [nginx]}
     - {role: debops.fcgiwrap, tags: [fcgiwrap]}
