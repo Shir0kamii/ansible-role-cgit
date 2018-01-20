@@ -1,20 +1,23 @@
-# TODO: add ssl certification via letsencrypt
-
 server {
 
         server_name {{ cgit_domain_name }};
 
         listen 80;
         listen [::]:80;
-        #listen 443 ssl http2;
-        #listen [::]:443 ssl http2;
 
-        #ssl_certificate /etc/letsencrypt/live/git.mg0.fr/fullchain.pem;
-        #ssl_certificate_key /etc/letsencrypt/live/git.mg0.fr/privkey.pem;
+		{% if cgit_use_ssl %}
+        listen 443 ssl http2;
+        listen [::]:443 ssl http2;
 
-        #if ($scheme != "https") {
-        #        return 301 https://$host$request_uri;
-        #}
+		ssl_certificate /etc/letsencrypt/live/{{ cgit_domain_name }}/fullchain.pem;
+		ssl_certificate_key /etc/letsencrypt/live/{{ cgit_domain_name }}/privkey.pem;
+
+		{% if cgit_force_ssl %}
+        if ($scheme != "https") {
+                return 301 https://$host$request_uri;
+        }
+		{% endif %}
+		{% endif %}
 
         location / {
                 root /usr/lib/cgit/cgit.cgi;
@@ -30,8 +33,8 @@ server {
 				alias {{ cgit_logo_location }};
         }
 
-        #location /.well-known/ {
-        #        root /var/lib/letsencrypt/well-known/;
-        #}
+        location /.well-known/ {
+                root /var/lib/letsencrypt/well-known/;
+        }
 
 }

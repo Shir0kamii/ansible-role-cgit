@@ -11,3 +11,6 @@ cgit_logo_endpoint: "/cgit.png"
 cgit_logo_location: "/usr/share/cgit/cgit.png"
 
 cgit_repo_dir: "/srv/git/"
+
+cgit_use_ssl: True
+cgit_force_ssl: False
