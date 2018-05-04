@@ -1,2 +1,3 @@
 - src: geerlingguy.nginx
 - src: debops.fcgiwrap
+- src: Shir0kamii.letsencrypt
