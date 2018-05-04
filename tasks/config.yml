@@ -1,3 +1,10 @@
+- name: Get SSL certificate
+  include_role:
+      name: Shir0kamii.letsencrypt
+  vars:
+      - letsencrypt_domains:
+        - "{{ cgit_domain_name }}"
+
 - name: Copy nginx configuration
   template:
       src: cgit.conf.j2

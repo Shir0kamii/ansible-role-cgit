@@ -12,3 +12,4 @@ galaxy_info:
 dependencies:
     - {role: geerlingguy.nginx, tags: [nginx]}
     - {role: debops.fcgiwrap, tags: [fcgiwrap]}
+    - {role: Shir0kamii.letsencrypt, tags: [letsencrypt]}
